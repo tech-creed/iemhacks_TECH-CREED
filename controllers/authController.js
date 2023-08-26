@@ -7,7 +7,6 @@ const registerPage = async(req,res)=>{
 }
 
 const PostRegister = async (req, res) => {
-    console.log(req.body)
     res.cookie("walletID", req.body.wallet_id);
     res.cookie("role", req.body.role);
     res.cookie("name", req.body.name);
@@ -15,7 +14,6 @@ const PostRegister = async (req, res) => {
 }
 
 const PostLogin = async (req, res) => {
-    console.log(req.body)
     res.cookie("walletID", req.body.wallet_id);
     res.cookie("role", req.body.role);
     res.cookie("name", req.body.name);
