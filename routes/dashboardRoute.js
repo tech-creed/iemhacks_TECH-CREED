@@ -5,6 +5,6 @@ const router = express.Router()
 const pageController = require("../controllers/pageController")
 
 
-router.get("/",pageController.dashboard)
+router.get("/",pageController.homePage)
 
 module.exports = router

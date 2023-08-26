@@ -1,6 +1,5 @@
-const dashboard = async(req,res)=>{
-    res.send('dashboard')
-    res.end()
+const homePage = async(req,res)=>{
+    res.render('index')
 }
 
-module.exports = {dashboard}
+module.exports = {homePage}
