@@ -101,6 +101,9 @@
   <script>
 
     cookies = document.cookie.split(';')
+
+    App.FetchEmission();
+
     if (decodeURIComponent(cookies[1].split('=')[1]) == 'individual') {
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
     }
