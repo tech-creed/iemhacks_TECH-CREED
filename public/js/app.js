@@ -156,17 +156,28 @@ App = {
             }
         }
 
-        // x_data =  ['2023-08-18', '2023-08-19', '2023-08-20', '2023-08-23', '2023-08-25', '2023-08-25', '2023-08-26', '2023-08-31','2023-08-18', '2023-08-19', '2023-08-20', '2023-08-23', '2023-08-25', '2023-08-25', '2023-08-26', '2023-08-31']
-        // y_data = ['6', '8', '12', '6', '17', '19', '12', '30']
-        // y_data_new = [,,,,,,,21.77116584777832,
-        //     16.077754974365234,
-        //     13.839655876159668,
-        //     18.771843910217285,
-        //     11.224048614501953,
-        //     12.831908226013184,
-        //     13.539283752441406
-        // ]
-        //y_data_new = [,,,,,,,'30','12', '17', '14', '12', '7', '16', '12', '14']
+        const rawResponse = await fetch('http://192.168.0.105:3000/week', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({data: y_data.slice(y_data.length-7,y_data.length)})
+        });
+
+        var y_new_data_responce = await rawResponse.json();
+        y_new_data_responce = y_new_data_responce['data']['0']
+        y_new_data_graph = []
+
+        for (let i = 1; i < y_data.length; i++) {
+            y_new_data_graph.push(null)
+        }
+        y_new_data_graph.push(y_data[y_data.length-1])
+
+        for (let i = 1; i < y_new_data_responce.length+1; i++) {
+            x_data.push(x_data[6].slice(0,8)+(parseInt(x_data[6].slice(8,10))+ parseInt(i)))
+            y_new_data_graph.push(y_new_data_responce[i-1])
+        }
 
         var ctxL = document.getElementById("lineChart").getContext('2d');
         var myLineChart = new Chart(ctxL, {
@@ -182,6 +193,18 @@ App = {
                     ],
                     borderColor: [
                         'rgba(255, 0, 0, .7)',
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    lineTension: 0.25,
+                    label: "AI Predicted Carbon Visualization",
+                    data: y_new_data_graph,
+                    backgroundColor: [
+                        'rgba(0, 255, 0, .2)',
+                    ],
+                    borderColor: [
+                        'rgba(0, 255, 0, .7)',
                     ],
                     borderWidth: 2
                 }
