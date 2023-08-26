@@ -13,11 +13,13 @@ app.use(express.urlencoded({
 app.use(cookieParser())
 app.set('view engine', 'ejs')
 
-const PORT = 52331;
+const PORT = 52331
 
 // routes
 const DashboardRoute = require('./routes/dashboardRoute')
+const AuthRoute = require('./routes/authRoute')
 
 app.use('/',DashboardRoute)
+app.use('/auth',AuthRoute)
 
-app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`))
