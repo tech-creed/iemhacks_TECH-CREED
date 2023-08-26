@@ -155,29 +155,32 @@ App = {
                 j += 1
             }
         }
-
-        const rawResponse = await fetch('http://192.168.0.105:3000/week', {
-            method: 'POST',
-            headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({data: y_data.slice(y_data.length-7,y_data.length)})
-        });
-
-        var y_new_data_responce = await rawResponse.json();
-        y_new_data_responce = y_new_data_responce['data']['0']
         y_new_data_graph = []
 
-        for (let i = 1; i < y_data.length; i++) {
-            y_new_data_graph.push(null)
-        }
-        y_new_data_graph.push(y_data[y_data.length-1])
+        if(y_data.length > 7){
+            const rawResponse = await fetch('http://192.168.0.105:3000/week', {
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({data: y_data.slice(y_data.length-7,y_data.length)})
+            });
 
-        for (let i = 1; i < y_new_data_responce.length+1; i++) {
-            x_data.push(x_data[6].slice(0,8)+(parseInt(x_data[6].slice(8,10))+ parseInt(i)))
-            y_new_data_graph.push(y_new_data_responce[i-1])
+            var y_new_data_responce = await rawResponse.json();
+            y_new_data_responce = y_new_data_responce['data']['0']
+
+            for (let i = 1; i < y_data.length; i++) {
+                y_new_data_graph.push(null)
+            }
+            y_new_data_graph.push(y_data[y_data.length-1])
+
+            for (let i = 1; i < y_new_data_responce.length+1; i++) {
+                x_data.push(x_data[6].slice(0,8)+(parseInt(x_data[6].slice(8,10))+ parseInt(i)))
+                y_new_data_graph.push(y_new_data_responce[i-1])
+            }
         }
+        
 
         var ctxL = document.getElementById("lineChart").getContext('2d');
         var myLineChart = new Chart(ctxL, {

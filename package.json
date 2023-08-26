@@ -13,6 +13,7 @@
   "author": "TENSHKUMAR K, MUKILAN S, MADAVAN K",
   "license": "ISC",
   "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
