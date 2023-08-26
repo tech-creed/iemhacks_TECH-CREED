@@ -117,5 +117,5 @@ App = {
         await App.emission.createEmissionData(document.getElementById('walletID').value, document.getElementById('co2').value, document.getElementById('emissionDate').value.toString(), { from: App.account, value: web3.utils.toWei((parseFloat(0.001) * parseFloat(document.getElementById('co2').value)).toString(), "ether") })
 
         window.location.href = '/mark-co2'
-    }
+    },
 }
