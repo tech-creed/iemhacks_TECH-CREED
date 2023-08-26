@@ -68,9 +68,16 @@ App = {
         App.contracts.emission = TruffleContract(Emission)
         App.contracts.emission.setProvider(App.web3Provider)
 
+        // token ABI
+        const GreenCreditToken = await $.getJSON('/contracts/GreenCreditToken.json')
+        App.contracts.token = TruffleContract(GreenCreditToken)
+        App.contracts.token.setProvider(App.web3Provider)
+
         // store the deployes version of the smart contract
         App.user = await App.contracts.user.deployed()
         App.emission = await App.contracts.emission.deployed()
+        App.token = await App.contracts.token.deployed()
+
     },
 
     connectWalletRegister: async () => {
@@ -81,6 +88,12 @@ App = {
         data['role'] = document.getElementById('register_role').value
         data['authority'] = document.getElementById('register_authority').value
         data['wallet_id'] = App.account
+
+        if(data['role'] == "government"){
+            await App.token.grantGovernmentPrivilege(App.account,{ from: App.account })
+        }else if(data['role'] == "industry"){
+            await App.token.grantIndustryPrivilege(App.account,{ from: App.account })
+        }
 
         await App.user.setUser(data['wallet_id'], data['name'], data['role'], data['authority'], { from: App.account })
         let r = await fetch('/auth/register', { method: 'POST', body: JSON.stringify(data), headers: { 'Content-type': 'application/json;charset=UTF-8' } })
@@ -95,12 +108,13 @@ App = {
         await App.load()
         data = {}
         data['wallet_id'] = App.account
-        await App.user.Users(App.account).then(dataChain => {
-            data['name'] = dataChain['name']
-            data['role'] = dataChain['privilege']
-        })
+        
         var userOrNot = await App.user.checkUserExists(App.account)
         if (userOrNot) {
+            await App.user.Users(App.account).then(dataChain => {
+                data['name'] = dataChain['name']
+                data['role'] = dataChain['privilege']
+            })
             let r = await fetch('/auth/login', { method: 'POST', body: JSON.stringify(data), headers: { 'Content-type': 'application/json; charset=UTF-8' } })
             r = await r.json();
             if (r) {
@@ -113,13 +127,13 @@ App = {
 
     EmissionMark: async () => {
         await App.load()
-        
+
         await App.emission.createEmissionData(document.getElementById('walletID').value, document.getElementById('co2').value, document.getElementById('emissionDate').value.toString(), { from: App.account, value: web3.utils.toWei((parseFloat(0.001) * parseFloat(document.getElementById('co2').value)).toString(), "ether") })
 
         window.location.href = '/mark-co2'
     },
 
-    FetchEmission: async()=>{
+    FetchEmission: async () => {
         await App.load()
         const taskCount = await App.emission.dataCount()
         const userWallet = document.cookie.split(';')[0].split('=')[1]
@@ -149,7 +163,7 @@ App = {
           <td>${task[2]}</td>
           <td>${task[0]}</td>
           <td>${task[1]}</td>
-          <td>${task[3]/1000}</td>
+          <td>${task[3] / 1000}</td>
           <td>${cum_emission}</td>
           </tr>`
                 j += 1
@@ -220,5 +234,31 @@ App = {
         tabel_body.innerHTML = html
     },
 
-    
+    tokenDetails: async ()=>{
+        await App.load()
+        const availableToken = await App.token.balanceOf(App.account)
+        document.querySelector('#tokenAvailable').innerHTML = web3.utils.fromWei(availableToken.toString(), 'ether')
+        document.querySelector('#tokenName').innerHTML = await App.token.name()
+        document.querySelector('#tokenSymbol').innerHTML = await App.token.symbol()
+        const tokenPrice = await App.token.tokenPrice()
+        document.querySelector('#tokenPrice').innerHTML = tokenPrice.toString() + " Wei"
+        const totalSupply = await App.token.totalSupply()
+        document.querySelector('#tokenSupply').innerHTML = totalSupply.toString() + " Wei"
+    },
+
+    setTokenPrice:async()=>{
+        await App.load()
+        const newPrice = document.querySelector('#newPrice').value;
+        await App.token.setTokenPrice(newPrice, { from: App.account })
+        window.location.href = '/dashboard'
+    },
+
+    initAllowance:async()=>{
+        await App.load()
+        const industryWalletID = document.querySelector('#industryWalletID').value;
+        const initTokens = document.querySelector('#initTokens').value;
+        await App.token.initialAllowance(industryWalletID,initTokens, { from: App.account })
+        window.location.href = '/dashboard'
+    }
+
 }

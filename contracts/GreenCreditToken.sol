@@ -18,7 +18,7 @@ contract GreenCreditToken is ERC20 {
 
     modifier onlyPlatformOwner() {
         require(
-            msg.sender != GreenChainPlatformOwner,
+            msg.sender == GreenChainPlatformOwner,
             "you are not a platform owner"
         );
         _;
@@ -57,7 +57,7 @@ contract GreenCreditToken is ERC20 {
     {
         require(_industry != address(0), "Invalid addresses");
         require(
-            IndustryAccounts[_industry] != true,
+            IndustryAccounts[_industry] == true,
             "Seller must be an industry"
         );
         require(_tokenCount > 0, "token Count must be greater than 0");

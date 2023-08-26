@@ -24,7 +24,6 @@
   <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="/css/login_register.css">
@@ -41,8 +40,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
-          <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
+          <li><a class="nav-link scrollto" id="co2-update" href="/allowance">Allocate Tokens for Industries</a></li>
+          <li><a class="nav-link scrollto" id="reportLink" href="/all-emission">All Industries Report</a></li>
           <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
           <li><a class="getstarted scrollto" href="/auth/logout">Logout</a></li>
         </ul>
@@ -52,7 +51,6 @@
     </div>
   </header>
 
-  <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center" >
 
     <div class="row" style="justify-content: center; display: flex; width: 100%;">
@@ -60,18 +58,18 @@
         <div class="form">
           <span class="title">Initial Allowance</span>
   
-          <form>
+          <form onSubmit="App.initAllowance(); return false;">
             <div class="input-field">
               <input id="industryWalletID" type="text" name="industry" placeholder="Industry Address" required>
               <i class="bi bi-envelope icon"></i>
             </div>
             <div class="input-field">
-              <input id="initTokens" type="text" name="amount" placeholder="Tokens(ECR)" required>
+              <input id="initTokens" type="text" name="amount" placeholder="Tokens(GCT)" required>
               <i class="bi bi-check"></i>
             </div>
   
             <div class="input-field button">
-              <input type="submit" value="Sumbit Co2 Emission">
+              <input type="submit" value="Sumbit Allowance">
             </div>
   
           </form>
@@ -81,14 +79,14 @@
         <div class="form">
           <span class="title">Set Token Price</span>
   
-          <form>
+          <form onSubmit="App.setTokenPrice(); return false;">
             <div class="input-field">
-              <input id="newPrice" type="text" name="amount" placeholder="Amount" required >
+              <input id="newPrice" type="text" name="amount" placeholder="Amount(in Wei)" required >
               <i class="bi bi-check"></i>
             </div>
   
             <div class="input-field button">
-              <input type="submit" value="Sumbit Co2 Emission">
+              <input type="submit" value="Sumbit Token Price">
             </div>
   
           </form>
@@ -114,14 +112,9 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/app.js"></script>
-  <script>
+  <!-- <script>
     cookies = document.cookie.split(';')
-    if (decodeURIComponent(cookies[1].split('=')[1]) == 'individual') {
-      document.getElementById('reportLink').innerHTML = 'Your Emission Report'
-    }
-    document.getElementById('walletID').value = decodeURIComponent(cookies[0].split('=')[1])
-    document.getElementById('name').value = decodeURIComponent(cookies[2].split('=')[1])
-  </script>
+  </script> -->
 </body>
 
 </html>
