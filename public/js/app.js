@@ -8,7 +8,7 @@ App = {
         console.log('App connecting...')
         await App.loadWeb3()
         await App.loadAccount()
-        await App.loadContract()
+        await App.loadContracts()
         return false;
     },
 
@@ -56,13 +56,21 @@ App = {
             })
     },
 
-    loadContract: async () => {
+    loadContracts: async () => {
+
+        // users ABI
         const UserContract = await $.getJSON('/contracts/UserAuth.json')
         App.contracts.user = TruffleContract(UserContract)
         App.contracts.user.setProvider(App.web3Provider)
 
+        // emission ABI
+        const Emission = await $.getJSON('/contracts/Emission.json')
+        App.contracts.emission = TruffleContract(Emission)
+        App.contracts.emission.setProvider(App.web3Provider)
+
         // store the deployes version of the smart contract
         App.user = await App.contracts.user.deployed()
+        App.emission = await App.contracts.emission.deployed()
     },
 
     connectWalletRegister: async () => {
@@ -101,5 +109,13 @@ App = {
         } else {
             alert('need to register')
         }
+    },
+
+    EmissionMark: async () => {
+        await App.load()
+        
+        await App.emission.createEmissionData(document.getElementById('walletID').value, document.getElementById('co2').value, document.getElementById('emissionDate').value.toString(), { from: App.account, value: web3.utils.toWei((parseFloat(0.001) * parseFloat(document.getElementById('co2').value)).toString(), "ether") })
+
+        window.location.href = '/mark-co2'
     }
 }
