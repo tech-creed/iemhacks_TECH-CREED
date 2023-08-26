@@ -1,0 +1,22 @@
+{
+  "name": "iem-2.0-greenchain",
+  "version": "1.0.0",
+  "description": "An innovative approach to tackle the climate change. We merges AI technology for analysing and prediction of data of individual and industry carbon footprints",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "TENSHKUMAR K, MUKILAN S, MADAVAN K",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
