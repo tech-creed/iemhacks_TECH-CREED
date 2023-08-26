@@ -6,4 +6,20 @@ const registerPage = async(req,res)=>{
     res.render('register')
 }
 
-module.exports = {loginPage,registerPage}
+const PostRegister = async (req, res) => {
+    console.log(req.body)
+    res.cookie("walletID", req.body.wallet_id);
+    res.cookie("role", req.body.role);
+    res.cookie("name", req.body.name);
+    res.json("OK")
+}
+
+const PostLogin = async (req, res) => {
+    console.log(req.body)
+    res.cookie("walletID", req.body.wallet_id);
+    res.cookie("role", req.body.role);
+    res.cookie("name", req.body.name);
+    res.json("OK")
+  }
+
+module.exports = {loginPage,registerPage,PostRegister,PostLogin}
