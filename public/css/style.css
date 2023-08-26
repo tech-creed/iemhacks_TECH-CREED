@@ -6,6 +6,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  overflow-x: hidden;
 }
 
 a {
@@ -1264,4 +1265,8 @@ section {
   text-align: center;
   font-size: 13px;
   color: #017013;
+}
+
+.img-fluid{
+  max-width: 85%!important;
 }
