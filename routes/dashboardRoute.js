@@ -14,4 +14,6 @@ router.get("/report-co2",pageController.report_co2)
 router.get("/allowance",pageController.allowance)
 router.get("/marketplace",pageController.marketplace)
 
+router.get("/transparent",pageController.transparent)
+
 module.exports = router

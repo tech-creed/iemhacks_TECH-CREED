@@ -28,4 +28,8 @@ const marketplace = async(req,res)=>{
     res.render('marketplace')
 }
 
-module.exports = {homePage,dashboard,mark_co2,report_co2,allowance,marketplace}
+const transparent = async(req,res)=>{
+    res.render('transparent')
+}
+
+module.exports = {homePage,dashboard,mark_co2,report_co2,allowance,marketplace,transparent}
