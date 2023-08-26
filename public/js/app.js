@@ -2,6 +2,7 @@ App = {
 
     loading: false,
     contracts: {},
+    account: "",
 
     load: async () => {
         console.log('App connecting...')
@@ -64,29 +65,29 @@ App = {
         App.user = await App.contracts.user.deployed()
     },
 
-    connectWalletRegister:async()=>{
-        App.load()
+    connectWalletRegister: async () => {
+        await App.load()
         data = {}
 
-        data['name'] = document.getElementById('register_name').value 
-        data['role'] = document.getElementById('register_role').value 
-        data['authority'] = document.getElementById('register_authority').value 
+        data['name'] = document.getElementById('register_name').value
+        data['role'] = document.getElementById('register_role').value
+        data['authority'] = document.getElementById('register_authority').value
         data['wallet_id'] = App.account
 
-        await App.user.setUser(data['wallet_id'], data['name'], data['role'], data['authority'], { from: App.account }) 
-        let r = await fetch('/auth/register', { method: 'POST', body: JSON.stringify(data), headers: { 'Content-type': 'application/json  charset=UTF-8' } })
+        await App.user.setUser(data['wallet_id'], data['name'], data['role'], data['authority'], { from: App.account })
+        let r = await fetch('/auth/register', { method: 'POST', body: JSON.stringify(data), headers: { 'Content-type': 'application/json;charset=UTF-8' } })
         r = await r.json()
         if (r) {
-            alert(data['name']+' Welcome to the GreenChain EcoSystem') 
+            alert(data['name'] + ' Welcome to the GreenChain EcoSystem')
             window.location.href = `/dashboard`
         }
     },
 
     connectWalletLogin: async () => {
-        App.load()
+        await App.load()
         data = {}
         data['wallet_id'] = App.account
-        await App.user.Users(App.account).then(dataChain=>{
+        await App.user.Users(App.account).then(dataChain => {
             data['name'] = dataChain['name']
             data['role'] = dataChain['privilege']
         })
@@ -97,7 +98,7 @@ App = {
             if (r) {
                 window.location.href = `/dashboard`
             }
-        }else{
+        } else {
             alert('need to register')
         }
     }

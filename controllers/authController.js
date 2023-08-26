@@ -20,6 +20,13 @@ const PostLogin = async (req, res) => {
     res.cookie("role", req.body.role);
     res.cookie("name", req.body.name);
     res.json("OK")
-  }
+}
 
-module.exports = {loginPage,registerPage,PostRegister,PostLogin}
+const logout = async(req,res)=>{
+    res.clearCookie("name");
+    res.clearCookie("role");
+    res.clearCookie("walletID");
+    res.redirect('/')
+}
+
+module.exports = {loginPage,registerPage,PostRegister,PostLogin,logout}
