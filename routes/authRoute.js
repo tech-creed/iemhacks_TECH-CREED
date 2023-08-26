@@ -5,5 +5,7 @@ const router = express.Router()
 const authController = require("../controllers/authController")
 
 router.get("/login",authController.loginPage)
+router.get("/register",authController.registerPage)
+
 
 module.exports = router

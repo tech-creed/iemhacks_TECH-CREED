@@ -13,7 +13,7 @@ app.use(express.urlencoded({
 app.use(cookieParser())
 app.set('view engine', 'ejs')
 
-const PORT = 52331
+const PORT = 52332
 
 // routes
 const DashboardRoute = require('./routes/dashboardRoute')
