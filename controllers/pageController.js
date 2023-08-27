@@ -17,7 +17,7 @@ const mark_co2 = async (req,res)=>{
 }
 
 const buy_token = async (req,res)=>{
-    res.render('buytoken')
+    res.render('buyToken')
 }
 
 const report_co2 = async(req,res)=>{

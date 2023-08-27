@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>GreenChain | Mark Co2 Emission</title>
+  <title>GreenChain | Buy Token</title>
 
   <!-- Favicons -->
   <link href="/img/favicon.png" rel="icon">
@@ -24,7 +24,6 @@
   <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="/css/login_register.css">
@@ -41,6 +40,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link scrollto" id="buyToken" href="/buy-token">Buy Token</a></li>
           <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
           <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
           <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
@@ -54,28 +54,41 @@
 
   <section id="hero" class="hero d-flex align-items-center" style="justify-content: center;">
 
+    <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
+      <div>
+        <h1 data-aos="fade-up" data-aos-delay="600"><u>Current Token Price</u></h1>
+        <h1 data-aos="fade-up" data-aos-delay="500" id="tokenPrice"></h1>
+      </div>
+      <div>
+        <h1 data-aos="fade-up" data-aos-delay="600"><u>Your Industry Allowance</u></h1>
+        <h1 data-aos="fade-up" data-aos-delay="500" id="tokenAllowance"></h1>
+      </div>
+    </div>
+
     <div data-aos="fade-up" data-aos-delay="200" class="container" style="top: 50px;max-width: 540px;">
       <div class="form">
         <span class="title">Buy Token</span>
 
-        <form onsubmit="App.EmissionMark(); return false;">
+        <form onSubmit="App.buyToken(); return false;">
           <div class="input-field">
-            <input id="walletID" type="text" name="walletID" placeholder="Enter your Wallet" required readonly>
+            <input id="walletID" type="text" name="walletID" placeholder="Enter your Wallet Address" required>
             <i class="bi bi-envelope icon"></i>
           </div>
-          
           <div>
-            
             <div class="input-field">
-              <input id="co2" type="text" placeholder="Enter Token value" required>
+              <input id="tokenCountForBuy" type="text" placeholder="Enter Token Count to Buy" required>
               <i class="bi bi-arrow-right"></i>
             </div>
           </div>
 
+          <div class="input-field">
+            <input id="governmentId" type="text" name="governmentAddress" placeholder="Enter Government Wallet Address" required>
+            <i class="bi bi-envelope icon"></i>
+          </div>
+        
           <div class="input-field button">
             <input type="submit" value="Buy Token">
           </div>
-
         </form>
       </div>
     </div>
@@ -103,7 +116,7 @@
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
     }
     document.getElementById('walletID').value = decodeURIComponent(cookies[0].split('=')[1])
-    document.getElementById('name').value = decodeURIComponent(cookies[2].split('=')[1])
+    App.detailsToBuy()
   </script>
 </body>
 

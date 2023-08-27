@@ -42,6 +42,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link scrollto" id="buyToken" href="/buy-token">Buy Token</a></li>
           <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
           <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
           <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
@@ -144,10 +145,12 @@
       document.getElementById('co2-update').href = '/allowance'
       document.getElementById('co2-update').innerHTML = 'Allocate Tokens for Industries'
       document.getElementById('co2-update-btn').style.display = 'none'
+      document.getElementById('buyToken').style.display = 'none'
       document.getElementById('industryAllowance').style.display = 'none'
     } else if (document.getElementById('role').innerHTML == 'individual') {
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
       document.getElementById('industryAllowance').style.display = 'none'
+      document.getElementById('buyToken').style.display = 'none'
     }
   </script>
 </body>

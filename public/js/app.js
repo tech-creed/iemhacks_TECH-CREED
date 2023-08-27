@@ -366,6 +366,26 @@ App = {
         }
         tabel_body.innerHTML = html
 
+    },
+
+    detailsToBuy:async()=>{
+        await App.load()
+
+        const tokenPrice = await App.token.tokenPrice()
+        const tokenAllowance = await App.token.IndustryAllowance(App.account)
+        document.querySelector('#tokenAllowance').innerHTML = tokenAllowance.toString() + " Tokens"
+        document.querySelector('#tokenPrice').innerHTML = tokenPrice.toString() + " Wei"
+    },
+
+    buyToken:async()=>{
+        await App.load()
+
+        const tokenPrice = await App.token.tokenPrice()
+        const _to = document.querySelector('#walletID').value
+        const _tokenCount = document.querySelector('#tokenCountForBuy').value
+        const _governmentAddress = document.querySelector('#governmentId').value
+        await App.token.buyToken(_to,_tokenCount,_governmentAddress,{from:App.account,value:tokenPrice.toString()*_tokenCount})
+        window.location.href = '/dashboard'
     }
 
 }
