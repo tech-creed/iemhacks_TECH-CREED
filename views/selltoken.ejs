@@ -43,6 +43,11 @@
         <ul>
           <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
           <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
+          <% if(true){ %>
+            <li><a class="nav-link scrollto" href="/buy-token">Buy Tokens</a></li>
+          <li><a class="nav-link scrollto" href="/sell-token">Sell Token</a></li>
+          <% } else{ %>  
+         <% } %>
           <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
           <li><a class="getstarted scrollto" href="/auth/logout">Logout</a></li>
         </ul>
