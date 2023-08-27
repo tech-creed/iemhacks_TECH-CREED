@@ -10,7 +10,9 @@ contract GreenCreditToken is ERC20 {
     mapping(address => bool) public GovernmentAccounts;
     mapping(address => bool) public IndustryAccounts;
 
-    constructor(uint256 initTokenPrice) ERC20("GreenCredit", "GCT") {
+    mapping(address => uint) public IndustryAllowance;
+
+    constructor(uint initTokenPrice) ERC20("GreenCredit", "GCT") {
         GreenChainPlatformOwner = payable(msg.sender);
         tokenPrice = initTokenPrice;
         _mint(GreenChainPlatformOwner, 100 * 10**decimals());
@@ -18,7 +20,7 @@ contract GreenCreditToken is ERC20 {
 
     modifier onlyPlatformOwner() {
         require(
-            msg.sender == GreenChainPlatformOwner,
+            msg.sender != GreenChainPlatformOwner,
             "you are not a platform owner"
         );
         _;
@@ -26,7 +28,7 @@ contract GreenCreditToken is ERC20 {
 
     function burnToken(address _address, uint _tokenCount) public {
         require(
-            balanceOf(_address) >= _tokenCount * 10 ** decimals(),
+            balanceOf(_address) >= _tokenCount * 10**decimals(),
             "token count is not enough"
         );
         _burn(_address, _tokenCount * 10**decimals());
@@ -41,7 +43,7 @@ contract GreenCreditToken is ERC20 {
     modifier onlyGovernment() {
         require(
             GovernmentAccounts[msg.sender] == true,
-            "only government authority can change the token price"
+            "only government authority can use this function"
         );
         _;
     }
@@ -50,17 +52,17 @@ contract GreenCreditToken is ERC20 {
         tokenPrice = newPrice;
     }
 
-    // initial
-    function initialAllowance(address _industry, uint _tokenCount)
+    function initialAllowance(address _industry,uint _maxAllowance, uint _tokenCount)
         public
         onlyGovernment
     {
         require(_industry != address(0), "Invalid addresses");
         require(
             IndustryAccounts[_industry] == true,
-            "Seller must be an industry"
+            "given address must be an industry"
         );
         require(_tokenCount > 0, "token Count must be greater than 0");
+        IndustryAllowance[_industry] = _maxAllowance;
         _transfer(msg.sender, _industry, _tokenCount * 10**decimals());
     }
 
@@ -72,12 +74,12 @@ contract GreenCreditToken is ERC20 {
     modifier onlyIndustry() {
         require(
             IndustryAccounts[msg.sender] == true,
-            "only industry authority can change the token price"
+            "only industry authority can use this function"
         );
         _;
     }
 
-    event tokenPurchased(address indexed _industryId,address indexed _govId, uint indexed _tokenCount,uint _taxFee);
+    event tokenPurchased( address indexed _industryId, address indexed _govId, uint indexed _tokenCount, uint _taxFee);
 
     // buy a token from Government and pay the tax fee for emission
     function buyToken(
@@ -85,9 +87,16 @@ contract GreenCreditToken is ERC20 {
         uint _tokenCount,
         address payable _govAddress
     ) public payable onlyIndustry {
-        require(tokenPrice == msg.value, "insufficient amount");
+        require(_tokenCount > 0, "Token count must be greater than 0");
+        require(tokenPrice * _tokenCount == msg.value, "Incorrect amount");
+        require(
+            IndustryAllowance[_to] >= _tokenCount,
+            "Allowance exceeded"
+        );
+
         _mint(_to, _tokenCount * 10**decimals());
-        _govAddress.transfer(msg.value); //pay the tax Fee to the Government
+        _govAddress.transfer(msg.value); // Pay the total cost to the Government
+        IndustryAllowance[_to] = IndustryAllowance[_to]-_tokenCount;
         emit tokenPurchased(_to, _govAddress, _tokenCount, msg.value);
     }
 
