@@ -422,6 +422,27 @@ App = {
         await App.token.listTokensForSale(tokenCount,tokenPriceToSell,{from:App.account})
         window.location.href = '/dashboard'
 
+    },
+
+    fetchListedTokensForSell:async()=>{
+        await App.load()
+        const cardBody = document.querySelector('.cardBody')
+        html = ``
+        const listingCount = await App.token.listingCount()
+        for(var i = 0; i < listingCount; i++) {
+            const listData = await App.token.listings(i)
+
+            html += `<div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <img src="img/logo.png" class="img-fluid" alt="">
+              <p style="font-size: 12px;">${listData[0]}</p>
+              <p>Token Price: ${listData[2]}</p>
+              <button class="buy">Buy ${listData[1]} ECR</button>
+            </div>
+          </div>`
+
+          cardBody.innerHTML = html
+        }
     }
 
 }
