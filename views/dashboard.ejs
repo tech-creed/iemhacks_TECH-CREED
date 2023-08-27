@@ -42,6 +42,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link scrollto" id="marketplace" href="/marketplace">Marketplace</a></li>
+          <li><a class="nav-link scrollto" id="sellToken" href="/sell-token">Sell Token</a></li>
           <li><a class="nav-link scrollto" id="buyToken" href="/buy-token">Buy Token</a></li>
           <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
           <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
@@ -74,17 +76,17 @@
           </div>
           <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
             <!-- token details -->
-            <div>
+            <div id="token-name">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Token Name</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenName"></h1>
             </div>
-            <div>
+            <div id="token-symbol">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Token Symbol</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenSymbol"></h1>
             </div>
           </div>
           <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
-            <div>
+            <div id="available-token">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Available Tokens</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenAvailable"></h1>
             </div>
@@ -94,11 +96,11 @@
             </div>
           </div>
           <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
-            <div>
+            <div id="token-price">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Current Token Price</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenPrice"></h1>
             </div>
-            <div>
+            <div id="token-supply">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Token Supply</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenSupply"></h1>
             </div>
@@ -147,10 +149,21 @@
       document.getElementById('co2-update-btn').style.display = 'none'
       document.getElementById('buyToken').style.display = 'none'
       document.getElementById('industryAllowance').style.display = 'none'
+      document.getElementById('sellToken').style.display = 'none'
+      document.getElementById('marketplace').style.display = 'none'
     } else if (document.getElementById('role').innerHTML == 'individual') {
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
+      
       document.getElementById('industryAllowance').style.display = 'none'
+      document.getElementById('token-name').style.display = 'none'
+      document.getElementById('token-symbol').style.display = 'none'
+      document.getElementById('available-token').style.display = 'none'
+      document.getElementById('token-price').style.display = 'none'
+      document.getElementById('token-supply').style.display = 'none'
+
       document.getElementById('buyToken').style.display = 'none'
+      document.getElementById('sellToken').style.display = 'none'
+      document.getElementById('marketplace').style.display = 'none'
     }
   </script>
 </body>
