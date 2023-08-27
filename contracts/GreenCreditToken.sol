@@ -93,19 +93,53 @@ contract GreenCreditToken is ERC20 {
             IndustryAllowance[_to] >= _tokenCount,
             "Allowance exceeded"
         );
-        _transfer(_govAddress, _to, _tokenCount * 10**decimals()); // need to transfer from government address
+
+        _mint(_to, _tokenCount * 10**decimals());
         _govAddress.transfer(msg.value); // Pay the total cost to the Government
         IndustryAllowance[_to] = IndustryAllowance[_to]-_tokenCount;
         emit tokenPurchased(_to, _govAddress, _tokenCount, msg.value);
     }
 
-    // Carbon credit trading
-    function tradeCarbonCredits(address _to, uint _amount)
-        public
-        onlyIndustry
-    {
-        require(_to != address(0), "Invalid address");
-        require(_amount > 0, "Amount must be greater than 0");
-        _transfer(msg.sender, _to, _amount * 10**decimals());
+    // ==== Carbon credit trading system ====
+
+    struct TokenListing {
+        address seller;
+        uint tokenAmount;
+        uint price;
+        bool isActive;
     }
+
+    mapping(uint => TokenListing) public listings;
+    uint public listingCount;
+
+    event TokensListed(address indexed seller, uint tokenAmount, uint price);
+    event TokensPurchased(address indexed buyer, address indexed seller, uint tokenAmount, uint price);
+
+    modifier validBalance(uint _tokenCount) {
+        require(balanceOf(msg.sender) >= _tokenCount * 10**decimals(), "Insufficient balance");
+        _;
+    }
+
+    function listTokensForSale(uint _tokenCount, uint _price) public onlyIndustry validBalance(_tokenCount) {
+        require(_tokenCount > 0 && _price > 0, "Invalid amount or price");
+
+        listings[listingCount] = TokenListing({
+            seller: msg.sender,
+            tokenAmount: _tokenCount,
+            price: _price,
+            isActive: true
+        });
+
+        emit TokensListed(msg.sender, _tokenCount, _price);
+        listingCount++;
+    }
+
+    // function tradeCarbonCredits(address _to, uint _amount)
+    //     public
+    //     onlyIndustry
+    // {
+    //     require(_to != address(0), "Invalid address");
+    //     require(_amount > 0, "Amount must be greater than 0");
+    //     _transfer(msg.sender, _to, _amount * 10**decimals());
+    // }
 }

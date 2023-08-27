@@ -43,6 +43,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link scrollto" id="marketplace" href="/marketplace">Marketplace</a></li>
+          <li><a class="nav-link scrollto" id="sellToken" href="/sell-token">Sell Token</a></li>
+          <li><a class="nav-link scrollto" id="buyToken" href="/buy-token">Buy Token</a></li>
           <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
           <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
           <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
@@ -106,6 +109,9 @@
 
     if (decodeURIComponent(cookies[1].split('=')[1]) == 'individual') {
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
+      document.getElementById('buyToken').style.display = 'none'
+        document.getElementById('sellToken').style.display = 'none'
+        document.getElementById('marketplace').style.display = 'none'
     }
     for (let i = 0; i < cookies.length; i++) {
       if (cookies[i].split('=')[0].trim() == 'name') {

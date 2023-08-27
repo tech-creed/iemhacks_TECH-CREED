@@ -42,6 +42,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link scrollto" id="marketplace" href="/marketplace">Marketplace</a></li>
+          <li><a class="nav-link scrollto" id="sellToken" href="/sell-token">Sell Token</a></li>
           <li><a class="nav-link scrollto" id="buyToken" href="/buy-token">Buy Token</a></li>
           <li><a class="nav-link scrollto" id="co2-update" href="/mark-co2">Update Co2 Emission</a></li>
           <li><a class="nav-link scrollto" id="reportLink" href="/report-co2">Industry Report</a></li>
@@ -147,10 +149,21 @@
       document.getElementById('co2-update-btn').style.display = 'none'
       document.getElementById('buyToken').style.display = 'none'
       document.getElementById('industryAllowance').style.display = 'none'
+      document.getElementById('sellToken').style.display = 'none'
+      document.getElementById('marketplace').style.display = 'none'
     } else if (document.getElementById('role').innerHTML == 'individual') {
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
+      
       document.getElementById('industryAllowance').style.display = 'none'
+      document.getElementById('token-name').style.display = 'none'
+      document.getElementById('token-symbol').style.display = 'none'
+      document.getElementById('available-token').style.display = 'none'
+      document.getElementById('token-price').style.display = 'none'
+      document.getElementById('token-supply').style.display = 'none'
+
       document.getElementById('buyToken').style.display = 'none'
+      document.getElementById('sellToken').style.display = 'none'
+      document.getElementById('marketplace').style.display = 'none'
     }
   </script>
 </body>
