@@ -41,6 +41,7 @@ nodemon server.js
 truffle compaile
 truffle migrate
 / The Developed smart contract will be deployed to local ETH chain
+Note : Copy the compailed contract inside build and paste inside public folder
 ```
 ##### After executing all the command open your browser and type ```localhost:52232```
 # Technology and Tech Stack Used
