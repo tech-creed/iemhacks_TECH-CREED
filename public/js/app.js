@@ -432,17 +432,28 @@ App = {
         for(var i = 0; i < listingCount; i++) {
             const listData = await App.token.listings(i)
 
-            html += `<div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+            html += `<div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200" ${!listData[3] ? 'style="display: none;"' : ''}>
             <div class="box">
               <img src="img/logo.png" class="img-fluid" alt="">
               <p style="font-size: 12px;">${listData[0]}</p>
               <p>Token Price: ${listData[2]}</p>
-              <button class="buy">Buy ${listData[1]} ECR</button>
+              <input type="hidden" id="listingId" value="${i}">
+              <input type="hidden" id="tokenPriceForBuy" value="${listData[2]}">
+              <button class="buy" onClick="App.buyListedToken();">Buy ${listData[1]} ECR</button>
             </div>
           </div>`
 
           cardBody.innerHTML = html
         }
+    },
+
+    buyListedToken:async()=>{
+        await App.load()
+
+        const listingId = document.querySelector('#listingId').value
+        const tokenPrice = document.querySelector('#tokenPriceForBuy').value
+        await App.token.buyTokensFromMarketpalce(listingId,{from:App.account,value:tokenPrice})
+        window.location.href = '/dashboard'
     }
 
 }

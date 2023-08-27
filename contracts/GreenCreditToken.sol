@@ -120,7 +120,7 @@ contract GreenCreditToken is ERC20 {
         uint tokenAmount,
         uint price
     );
-    event TokensPurchased(
+    event TokensPurchasedFromMarketplace(
         address indexed buyer,
         address indexed seller,
         uint tokenAmount,
@@ -154,7 +154,7 @@ contract GreenCreditToken is ERC20 {
     }
 
     // buy the listed token
-    function buyTokens(uint _listingId) public payable onlyIndustry {
+    function buyTokensFromMarketpalce(uint _listingId) public payable onlyIndustry {
         TokenListing storage listing = listings[_listingId];
         require(listing.isActive, "Listing is not active");
         require(msg.value == listing.price, "Incorrect payment amount");
@@ -169,7 +169,7 @@ contract GreenCreditToken is ERC20 {
 
         listing.isActive = false;
 
-        emit TokensPurchased(
+        emit TokensPurchasedFromMarketplace(
             msg.sender,
             listing.seller,
             listing.tokenAmount,
