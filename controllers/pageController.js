@@ -20,6 +20,11 @@ const buy_token = async (req,res)=>{
     res.render('buyToken')
 }
 
+const sell_token = async (req,res)=>{
+    res.render('selltoken')
+}
+
+
 const report_co2 = async(req,res)=>{
     res.render('reportCo2')
 }
@@ -40,4 +45,4 @@ const all_emission = async(req,res)=>{
     res.render('allEmission')
 }
 
-module.exports = {homePage,dashboard,mark_co2,report_co2,allowance,marketplace,transparent,all_emission,buy_token}
+module.exports = {homePage, dashboard, mark_co2, report_co2, allowance, marketplace, transparent, all_emission, buy_token, sell_token}
