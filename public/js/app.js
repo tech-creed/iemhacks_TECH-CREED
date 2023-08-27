@@ -237,10 +237,12 @@ App = {
     tokenDetails: async ()=>{
         await App.load()
         const availableToken = await App.token.balanceOf(App.account)
-        document.querySelector('#tokenAvailable').innerHTML = web3.utils.fromWei(availableToken.toString(), 'ether')
+        document.querySelector('#tokenAvailable').innerHTML = web3.utils.fromWei(availableToken.toString(), 'ether') + " GCT"
         document.querySelector('#tokenName').innerHTML = await App.token.name()
         document.querySelector('#tokenSymbol').innerHTML = await App.token.symbol()
         const tokenPrice = await App.token.tokenPrice()
+        const tokenAllowance = await App.token.IndustryAllowance(App.account)
+        document.querySelector('#tokenAllowance').innerHTML = tokenAllowance.toString() + " Tokens"
         document.querySelector('#tokenPrice').innerHTML = tokenPrice.toString() + " Wei"
         const totalSupply = await App.token.totalSupply()
         document.querySelector('#tokenSupply').innerHTML = totalSupply.toString() + " Wei"
@@ -257,7 +259,8 @@ App = {
         await App.load()
         const industryWalletID = document.querySelector('#industryWalletID').value;
         const initTokens = document.querySelector('#initTokens').value;
-        await App.token.initialAllowance(industryWalletID,initTokens, { from: App.account })
+        const maxAllowance = document.querySelector('#maxAllowance').value;
+        await App.token.initialAllowance(industryWalletID,maxAllowance,initTokens, { from: App.account })
         window.location.href = '/dashboard'
     }
 

@@ -93,8 +93,7 @@ contract GreenCreditToken is ERC20 {
             IndustryAllowance[_to] >= _tokenCount,
             "Allowance exceeded"
         );
-
-        _mint(_to, _tokenCount * 10**decimals());
+        _transfer(_govAddress, _to, _tokenCount * 10**decimals()); // need to transfer from government address
         _govAddress.transfer(msg.value); // Pay the total cost to the Government
         IndustryAllowance[_to] = IndustryAllowance[_to]-_tokenCount;
         emit tokenPurchased(_to, _govAddress, _tokenCount, msg.value);

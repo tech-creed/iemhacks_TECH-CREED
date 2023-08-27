@@ -8520,15 +8520,15 @@
     "absolutePath": "project:/contracts/UserAuth.sol",
     "exportedSymbols": {
       "UserAuth": [
-        1243
+        1244
       ]
     },
-    "id": 1244,
+    "id": 1245,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1143,
+        "id": 1144,
         "literals": [
           "solidity",
           "0.8",
@@ -8544,9 +8544,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1243,
+        "id": 1244,
         "linearizedBaseContracts": [
-          1243
+          1244
         ],
         "name": "UserAuth",
         "nameLocation": "72:8:6",
@@ -8555,12 +8555,12 @@
           {
             "constant": false,
             "functionSelector": "07973ccf",
-            "id": 1145,
+            "id": 1146,
             "mutability": "mutable",
             "name": "userCount",
             "nameLocation": "99:9:6",
             "nodeType": "VariableDeclaration",
-            "scope": 1243,
+            "scope": 1244,
             "src": "87:21:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8569,7 +8569,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1144,
+              "id": 1145,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "87:4:6",
@@ -8582,16 +8582,16 @@
           },
           {
             "canonicalName": "UserAuth.User",
-            "id": 1152,
+            "id": 1153,
             "members": [
               {
                 "constant": false,
-                "id": 1147,
+                "id": 1148,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "150:4:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1152,
+                "scope": 1153,
                 "src": "143:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8600,7 +8600,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1146,
+                  "id": 1147,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "143:6:6",
@@ -8613,12 +8613,12 @@
               },
               {
                 "constant": false,
-                "id": 1149,
+                "id": 1150,
                 "mutability": "mutable",
                 "name": "privilege",
                 "nameLocation": "172:9:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1152,
+                "scope": 1153,
                 "src": "165:16:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8627,7 +8627,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1148,
+                  "id": 1149,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "165:6:6",
@@ -8640,12 +8640,12 @@
               },
               {
                 "constant": false,
-                "id": 1151,
+                "id": 1152,
                 "mutability": "mutable",
                 "name": "authority",
                 "nameLocation": "199:9:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1152,
+                "scope": 1153,
                 "src": "192:16:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8654,7 +8654,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1150,
+                  "id": 1151,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "192:6:6",
@@ -8669,30 +8669,30 @@
             "name": "User",
             "nameLocation": "128:4:6",
             "nodeType": "StructDefinition",
-            "scope": 1243,
+            "scope": 1244,
             "src": "121:95:6",
             "visibility": "public"
           },
           {
             "anonymous": false,
             "eventSelector": "509c70f523067009f7db7f46db6956d7af8b679323680dc3821a8bad001ac1e1",
-            "id": 1162,
+            "id": 1163,
             "name": "UserRegistered",
             "nameLocation": "230:14:6",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1161,
+              "id": 1162,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1154,
+                  "id": 1155,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "walletId",
                   "nameLocation": "261:8:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1163,
                   "src": "245:24:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -8701,7 +8701,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1153,
+                    "id": 1154,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "245:7:6",
@@ -8715,13 +8715,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1156,
+                  "id": 1157,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "name",
                   "nameLocation": "285:4:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1163,
                   "src": "270:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -8730,7 +8730,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1155,
+                    "id": 1156,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "270:6:6",
@@ -8743,13 +8743,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1158,
+                  "id": 1159,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "privilege",
                   "nameLocation": "306:9:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1163,
                   "src": "291:24:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -8758,7 +8758,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1157,
+                    "id": 1158,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "291:6:6",
@@ -8771,13 +8771,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1160,
+                  "id": 1161,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "authority",
                   "nameLocation": "324:9:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1163,
                   "src": "317:16:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -8786,7 +8786,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1159,
+                    "id": 1160,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "317:6:6",
@@ -8805,25 +8805,25 @@
           {
             "constant": false,
             "functionSelector": "99b956a0",
-            "id": 1167,
+            "id": 1168,
             "mutability": "mutable",
             "name": "Users",
             "nameLocation": "376:5:6",
             "nodeType": "VariableDeclaration",
-            "scope": 1243,
+            "scope": 1244,
             "src": "343:38:6",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1152_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1153_storage_$",
               "typeString": "mapping(address => struct UserAuth.User)"
             },
             "typeName": {
-              "id": 1166,
+              "id": 1167,
               "keyName": "",
               "keyNameLocation": "-1:-1:-1",
               "keyType": {
-                "id": 1163,
+                "id": 1164,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "352:7:6",
@@ -8835,28 +8835,28 @@
               "nodeType": "Mapping",
               "src": "343:25:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1152_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1153_storage_$",
                 "typeString": "mapping(address => struct UserAuth.User)"
               },
               "valueName": "",
               "valueNameLocation": "-1:-1:-1",
               "valueType": {
-                "id": 1165,
+                "id": 1166,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 1164,
+                  "id": 1165,
                   "name": "User",
                   "nameLocations": [
                     "363:4:6"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1152,
+                  "referencedDeclaration": 1153,
                   "src": "363:4:6"
                 },
-                "referencedDeclaration": 1152,
+                "referencedDeclaration": 1153,
                 "src": "363:4:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_User_$1152_storage_ptr",
+                  "typeIdentifier": "t_struct$_User_$1153_storage_ptr",
                   "typeString": "struct UserAuth.User"
                 }
               }
@@ -8865,7 +8865,7 @@
           },
           {
             "body": {
-              "id": 1208,
+              "id": 1209,
               "nodeType": "Block",
               "src": "469:237:6",
               "statements": [
@@ -8875,7 +8875,7 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 1206,
+                    "id": 1207,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -8885,7 +8885,7 @@
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       },
-                      "id": 1189,
+                      "id": 1190,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -8897,24 +8897,24 @@
                               {
                                 "expression": {
                                   "baseExpression": {
-                                    "id": 1177,
+                                    "id": 1178,
                                     "name": "Users",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1167,
+                                    "referencedDeclaration": 1168,
                                     "src": "515:5:6",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1152_storage_$",
+                                      "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1153_storage_$",
                                       "typeString": "mapping(address => struct UserAuth.User storage ref)"
                                     }
                                   },
-                                  "id": 1179,
+                                  "id": 1180,
                                   "indexExpression": {
-                                    "id": 1178,
+                                    "id": 1179,
                                     "name": "_userAddress",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1169,
+                                    "referencedDeclaration": 1170,
                                     "src": "521:12:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -8928,11 +8928,11 @@
                                   "nodeType": "IndexAccess",
                                   "src": "515:19:6",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_User_$1152_storage",
+                                    "typeIdentifier": "t_struct$_User_$1153_storage",
                                     "typeString": "struct UserAuth.User storage ref"
                                   }
                                 },
-                                "id": 1180,
+                                "id": 1181,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
@@ -8940,7 +8940,7 @@
                                 "memberLocation": "535:9:6",
                                 "memberName": "privilege",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 1149,
+                                "referencedDeclaration": 1150,
                                 "src": "515:29:6",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_string_storage",
@@ -8956,7 +8956,7 @@
                                 }
                               ],
                               "expression": {
-                                "id": 1175,
+                                "id": 1176,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -8967,7 +8967,7 @@
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 1176,
+                              "id": 1177,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -8981,7 +8981,7 @@
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 1181,
+                            "id": 1182,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -9005,7 +9005,7 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 1174,
+                          "id": 1175,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -9016,7 +9016,7 @@
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 1182,
+                        "id": 1183,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9040,7 +9040,7 @@
                             "arguments": [
                               {
                                 "hexValue": "676f7665726e6d656e74",
-                                "id": 1186,
+                                "id": 1187,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -9063,7 +9063,7 @@
                                 }
                               ],
                               "expression": {
-                                "id": 1184,
+                                "id": 1185,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -9074,7 +9074,7 @@
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 1185,
+                              "id": 1186,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -9088,7 +9088,7 @@
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 1187,
+                            "id": 1188,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -9112,7 +9112,7 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 1183,
+                          "id": 1184,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -9123,7 +9123,7 @@
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 1188,
+                        "id": 1189,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -9152,7 +9152,7 @@
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       },
-                      "id": 1205,
+                      "id": 1206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -9164,24 +9164,24 @@
                               {
                                 "expression": {
                                   "baseExpression": {
-                                    "id": 1193,
+                                    "id": 1194,
                                     "name": "Users",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1167,
+                                    "referencedDeclaration": 1168,
                                     "src": "624:5:6",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1152_storage_$",
+                                      "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1153_storage_$",
                                       "typeString": "mapping(address => struct UserAuth.User storage ref)"
                                     }
                                   },
-                                  "id": 1195,
+                                  "id": 1196,
                                   "indexExpression": {
-                                    "id": 1194,
+                                    "id": 1195,
                                     "name": "_userAddress",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1169,
+                                    "referencedDeclaration": 1170,
                                     "src": "630:12:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -9195,11 +9195,11 @@
                                   "nodeType": "IndexAccess",
                                   "src": "624:19:6",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_User_$1152_storage",
+                                    "typeIdentifier": "t_struct$_User_$1153_storage",
                                     "typeString": "struct UserAuth.User storage ref"
                                   }
                                 },
-                                "id": 1196,
+                                "id": 1197,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
@@ -9207,7 +9207,7 @@
                                 "memberLocation": "644:9:6",
                                 "memberName": "privilege",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 1149,
+                                "referencedDeclaration": 1150,
                                 "src": "624:29:6",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_string_storage",
@@ -9223,7 +9223,7 @@
                                 }
                               ],
                               "expression": {
-                                "id": 1191,
+                                "id": 1192,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -9234,7 +9234,7 @@
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 1192,
+                              "id": 1193,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -9248,7 +9248,7 @@
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 1197,
+                            "id": 1198,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -9272,7 +9272,7 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 1190,
+                          "id": 1191,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -9283,7 +9283,7 @@
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 1198,
+                        "id": 1199,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9307,7 +9307,7 @@
                             "arguments": [
                               {
                                 "hexValue": "696e647573747279",
-                                "id": 1202,
+                                "id": 1203,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -9330,7 +9330,7 @@
                                 }
                               ],
                               "expression": {
-                                "id": 1200,
+                                "id": 1201,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -9341,7 +9341,7 @@
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 1201,
+                              "id": 1202,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -9355,7 +9355,7 @@
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 1203,
+                            "id": 1204,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -9379,7 +9379,7 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 1199,
+                          "id": 1200,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -9390,7 +9390,7 @@
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 1204,
+                        "id": 1205,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -9418,15 +9418,15 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1173,
-                  "id": 1207,
+                  "functionReturnParameters": 1174,
+                  "id": 1208,
                   "nodeType": "Return",
                   "src": "480:218:6"
                 }
               ]
             },
             "functionSelector": "133f50f5",
-            "id": 1209,
+            "id": 1210,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9434,17 +9434,17 @@
             "nameLocation": "399:15:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1170,
+              "id": 1171,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1169,
+                  "id": 1170,
                   "mutability": "mutable",
                   "name": "_userAddress",
                   "nameLocation": "423:12:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1209,
+                  "scope": 1210,
                   "src": "415:20:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9453,7 +9453,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1168,
+                    "id": 1169,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "415:7:6",
@@ -9469,17 +9469,17 @@
               "src": "414:22:6"
             },
             "returnParameters": {
-              "id": 1173,
+              "id": 1174,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1172,
+                  "id": 1173,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1209,
+                  "scope": 1210,
                   "src": "457:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9488,7 +9488,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1171,
+                    "id": 1172,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "457:4:6",
@@ -9502,7 +9502,7 @@
               ],
               "src": "456:6:6"
             },
-            "scope": 1243,
+            "scope": 1244,
             "src": "390:316:6",
             "stateMutability": "view",
             "virtual": false,
@@ -9510,37 +9510,37 @@
           },
           {
             "body": {
-              "id": 1241,
+              "id": 1242,
               "nodeType": "Block",
               "src": "826:165:6",
               "statements": [
                 {
                   "expression": {
-                    "id": 1228,
+                    "id": 1229,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 1220,
+                        "id": 1221,
                         "name": "Users",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1167,
+                        "referencedDeclaration": 1168,
                         "src": "837:5:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1152_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_User_$1153_storage_$",
                           "typeString": "mapping(address => struct UserAuth.User storage ref)"
                         }
                       },
-                      "id": 1222,
+                      "id": 1223,
                       "indexExpression": {
-                        "id": 1221,
+                        "id": 1222,
                         "name": "_walletId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1211,
+                        "referencedDeclaration": 1212,
                         "src": "843:9:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -9554,7 +9554,7 @@
                       "nodeType": "IndexAccess",
                       "src": "837:16:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_User_$1152_storage",
+                        "typeIdentifier": "t_struct$_User_$1153_storage",
                         "typeString": "struct UserAuth.User storage ref"
                       }
                     },
@@ -9563,11 +9563,11 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 1224,
+                          "id": 1225,
                           "name": "_name",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1213,
+                          "referencedDeclaration": 1214,
                           "src": "861:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -9575,11 +9575,11 @@
                           }
                         },
                         {
-                          "id": 1225,
+                          "id": 1226,
                           "name": "_privilege",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1215,
+                          "referencedDeclaration": 1216,
                           "src": "867:10:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -9587,11 +9587,11 @@
                           }
                         },
                         {
-                          "id": 1226,
+                          "id": 1227,
                           "name": "_authority",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1217,
+                          "referencedDeclaration": 1218,
                           "src": "878:10:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -9614,18 +9614,18 @@
                             "typeString": "string memory"
                           }
                         ],
-                        "id": 1223,
+                        "id": 1224,
                         "name": "User",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1152,
+                        "referencedDeclaration": 1153,
                         "src": "856:4:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_User_$1152_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_User_$1153_storage_ptr_$",
                           "typeString": "type(struct UserAuth.User storage pointer)"
                         }
                       },
-                      "id": 1227,
+                      "id": 1228,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -9637,33 +9637,33 @@
                       "src": "856:33:6",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_User_$1152_memory_ptr",
+                        "typeIdentifier": "t_struct$_User_$1153_memory_ptr",
                         "typeString": "struct UserAuth.User memory"
                       }
                     },
                     "src": "837:52:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_User_$1152_storage",
+                      "typeIdentifier": "t_struct$_User_$1153_storage",
                       "typeString": "struct UserAuth.User storage ref"
                     }
                   },
-                  "id": 1229,
+                  "id": 1230,
                   "nodeType": "ExpressionStatement",
                   "src": "837:52:6"
                 },
                 {
                   "expression": {
-                    "id": 1232,
+                    "id": 1233,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1230,
+                      "id": 1231,
                       "name": "userCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1145,
+                      "referencedDeclaration": 1146,
                       "src": "900:9:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9674,7 +9674,7 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "hexValue": "31",
-                      "id": 1231,
+                      "id": 1232,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -9694,7 +9694,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1233,
+                  "id": 1234,
                   "nodeType": "ExpressionStatement",
                   "src": "900:14:6"
                 },
@@ -9702,11 +9702,11 @@
                   "eventCall": {
                     "arguments": [
                       {
-                        "id": 1235,
+                        "id": 1236,
                         "name": "_walletId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1211,
+                        "referencedDeclaration": 1212,
                         "src": "945:9:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -9714,11 +9714,11 @@
                         }
                       },
                       {
-                        "id": 1236,
+                        "id": 1237,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1213,
+                        "referencedDeclaration": 1214,
                         "src": "955:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -9726,11 +9726,11 @@
                         }
                       },
                       {
-                        "id": 1237,
+                        "id": 1238,
                         "name": "_privilege",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1215,
+                        "referencedDeclaration": 1216,
                         "src": "961:10:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -9738,11 +9738,11 @@
                         }
                       },
                       {
-                        "id": 1238,
+                        "id": 1239,
                         "name": "_authority",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1217,
+                        "referencedDeclaration": 1218,
                         "src": "972:10:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -9769,18 +9769,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 1234,
+                      "id": 1235,
                       "name": "UserRegistered",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1162,
+                      "referencedDeclaration": 1163,
                       "src": "930:14:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,string memory,string memory,string memory)"
                       }
                     },
-                    "id": 1239,
+                    "id": 1240,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -9796,14 +9796,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1240,
+                  "id": 1241,
                   "nodeType": "EmitStatement",
                   "src": "925:58:6"
                 }
               ]
             },
             "functionSelector": "1d201a89",
-            "id": 1242,
+            "id": 1243,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9811,17 +9811,17 @@
             "nameLocation": "723:7:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1218,
+              "id": 1219,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1211,
+                  "id": 1212,
                   "mutability": "mutable",
                   "name": "_walletId",
                   "nameLocation": "739:9:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1242,
+                  "scope": 1243,
                   "src": "731:17:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9830,7 +9830,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1210,
+                    "id": 1211,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "731:7:6",
@@ -9844,12 +9844,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1213,
+                  "id": 1214,
                   "mutability": "mutable",
                   "name": "_name",
                   "nameLocation": "763:5:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1242,
+                  "scope": 1243,
                   "src": "749:19:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9858,7 +9858,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1212,
+                    "id": 1213,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "749:6:6",
@@ -9871,12 +9871,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1215,
+                  "id": 1216,
                   "mutability": "mutable",
                   "name": "_privilege",
                   "nameLocation": "783:10:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1242,
+                  "scope": 1243,
                   "src": "769:24:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9885,7 +9885,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1214,
+                    "id": 1215,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "769:6:6",
@@ -9898,12 +9898,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1217,
+                  "id": 1218,
                   "mutability": "mutable",
                   "name": "_authority",
                   "nameLocation": "808:10:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1242,
+                  "scope": 1243,
                   "src": "794:24:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9912,7 +9912,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1216,
+                    "id": 1217,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "794:6:6",
@@ -9927,23 +9927,23 @@
               "src": "730:89:6"
             },
             "returnParameters": {
-              "id": 1219,
+              "id": 1220,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "826:0:6"
             },
-            "scope": 1243,
+            "scope": 1244,
             "src": "714:277:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1244,
+        "scope": 1245,
         "src": "63:932:6",
         "usedErrors": [],
         "usedEvents": [
-          1162
+          1163
         ]
       }
     ],
@@ -9957,12 +9957,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x661A347E1CBE8ea91f693B4D5aFe9284698Cf52C",
-      "transactionHash": "0xbf3e28234e46e8701b959cfac99146e63edea1da8f5e9d75b64618f107783f96"
+      "address": "0xa72B1040bde0AC58818BDDf88D8C9F6595cBaEfF",
+      "transactionHash": "0x554039be10369818217ffdb8229201f734ee82262c86718db1a41aea917ae411"
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-08-27T07:33:32.826Z",
+  "updatedAt": "2023-08-27T07:59:04.696Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
