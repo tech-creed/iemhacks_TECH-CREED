@@ -52,10 +52,11 @@ contract GreenCreditToken is ERC20 {
         tokenPrice = newPrice;
     }
 
-    function initialAllowance(address _industry,uint _maxAllowance, uint _tokenCount)
-        public
-        onlyGovernment
-    {
+    function initialAllowance(
+        address _industry,
+        uint _maxAllowance,
+        uint _tokenCount
+    ) public onlyGovernment {
         require(_industry != address(0), "Invalid addresses");
         require(
             IndustryAccounts[_industry] == true,
@@ -79,7 +80,12 @@ contract GreenCreditToken is ERC20 {
         _;
     }
 
-    event tokenPurchased( address indexed _industryId, address indexed _govId, uint indexed _tokenCount, uint _taxFee);
+    event tokenPurchased(
+        address indexed _industryId,
+        address indexed _govId,
+        uint indexed _tokenCount,
+        uint _taxFee
+    );
 
     // buy a token from Government and pay the tax fee for emission
     function buyToken(
@@ -89,14 +95,11 @@ contract GreenCreditToken is ERC20 {
     ) public payable onlyIndustry {
         require(_tokenCount > 0, "Token count must be greater than 0");
         require(tokenPrice * _tokenCount == msg.value, "Incorrect amount");
-        require(
-            IndustryAllowance[_to] >= _tokenCount,
-            "Allowance exceeded"
-        );
+        require(IndustryAllowance[_to] >= _tokenCount, "Allowance exceeded");
 
         _mint(_to, _tokenCount * 10**decimals());
         _govAddress.transfer(msg.value); // Pay the total cost to the Government
-        IndustryAllowance[_to] = IndustryAllowance[_to]-_tokenCount;
+        IndustryAllowance[_to] = IndustryAllowance[_to] - _tokenCount;
         emit tokenPurchased(_to, _govAddress, _tokenCount, msg.value);
     }
 
@@ -112,15 +115,31 @@ contract GreenCreditToken is ERC20 {
     mapping(uint => TokenListing) public listings;
     uint public listingCount;
 
-    event TokensListed(address indexed seller, uint tokenAmount, uint price);
-    event TokensPurchased(address indexed buyer, address indexed seller, uint tokenAmount, uint price);
+    event TokensListed(
+        address indexed seller,
+        uint tokenAmount,
+        uint price
+    );
+    event TokensPurchased(
+        address indexed buyer,
+        address indexed seller,
+        uint tokenAmount,
+        uint price
+    );
 
     modifier validBalance(uint _tokenCount) {
-        require(balanceOf(msg.sender) >= _tokenCount * 10**decimals(), "Insufficient balance");
+        require(
+            balanceOf(msg.sender) >= _tokenCount * 10**decimals(),
+            "Insufficient balance"
+        );
         _;
     }
 
-    function listTokensForSale(uint _tokenCount, uint _price) public onlyIndustry validBalance(_tokenCount) {
+    function listTokensForSale(uint _tokenCount, uint _price)
+        public
+        onlyIndustry
+        validBalance(_tokenCount)
+    {
         require(_tokenCount > 0 && _price > 0, "Invalid amount or price");
 
         listings[listingCount] = TokenListing({
@@ -134,12 +153,27 @@ contract GreenCreditToken is ERC20 {
         listingCount++;
     }
 
-    // function tradeCarbonCredits(address _to, uint _amount)
-    //     public
-    //     onlyIndustry
-    // {
-    //     require(_to != address(0), "Invalid address");
-    //     require(_amount > 0, "Amount must be greater than 0");
-    //     _transfer(msg.sender, _to, _amount * 10**decimals());
-    // }
+    // buy the listed token
+    function buyTokens(uint _listingId) public payable onlyIndustry {
+        TokenListing storage listing = listings[_listingId];
+        require(listing.isActive, "Listing is not active");
+        require(msg.value == listing.price, "Incorrect payment amount");
+
+        _transfer(
+            listing.seller,
+            msg.sender,
+            listing.tokenAmount * 10**decimals()
+        );
+
+        payable(listing.seller).transfer(msg.value);
+
+        listing.isActive = false;
+
+        emit TokensPurchased(
+            msg.sender,
+            listing.seller,
+            listing.tokenAmount,
+            listing.price
+        );
+    }
 }
