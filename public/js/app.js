@@ -403,6 +403,25 @@ App = {
         const _governmentAddress = document.querySelector('#governmentId').value
         await App.token.buyToken(_to,_tokenCount,_governmentAddress,{from:App.account,value:tokenPrice.toString()*_tokenCount})
         window.location.href = '/dashboard'
+    },
+
+    detailsToListTokenForSell:async ()=>{
+        await App.load()
+
+        const tokenPrice = await App.token.tokenPrice()
+        const tokenBalance = await App.token.balanceOf(App.account)
+        document.querySelector('#tokenBalance').innerHTML = web3.utils.fromWei(tokenBalance.toString(), 'ether') + " GCT"
+        document.querySelector('#tokenPrice').innerHTML = tokenPrice.toString() + " Wei"
+    },
+
+    listTokenForSell:async()=>{
+        await App.load()
+
+        const tokenCount = document.querySelector('#tokenCount').value
+        const tokenPriceToSell = document.querySelector('#tokenPriceToSell').value
+        await App.token.listTokensForSale(tokenCount,tokenPriceToSell,{from:App.account})
+        window.location.href = '/dashboard'
+
     }
 
 }

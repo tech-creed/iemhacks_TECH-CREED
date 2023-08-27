@@ -24,7 +24,6 @@
   <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="/css/login_register.css">
@@ -57,26 +56,43 @@
 
   <section id="hero" class="hero d-flex align-items-center" style="justify-content: center;">
 
+    <div class="col">
+      <div>
+        <h1 data-aos="fade-up" data-aos-delay="600"><u>Current Token Price</u></h1>
+        <h1 data-aos="fade-up" data-aos-delay="500" id="tokenPrice"></h1>
+      </div>
+      <br><br>
+      <div>
+        <h1 data-aos="fade-up" data-aos-delay="600"><u>Available Tokens</u></h1>
+        <h1 data-aos="fade-up" data-aos-delay="500" id="tokenBalance"></h1>
+      </div>
+    </div>
+
     <div data-aos="fade-up" data-aos-delay="200" class="container" style="top: 50px;max-width: 540px;">
       <div class="form">
-        <span class="title">Sell Token</span>
+        <span class="title">List Tokens for Sale</span>
 
-        <form onsubmit="App.EmissionMark(); return false;">
+        <form onSubmit="App.listTokenForSell(); return false;">
           <div class="input-field">
-            <input id="walletID" type="text" name="walletID" placeholder="Enter your Wallet" required readonly>
+            <input id="walletID" type="text" name="walletID" required readonly>
             <i class="bi bi-envelope icon"></i>
           </div>
           
           <div>
             
             <div class="input-field">
-              <input id="co2" type="text" placeholder="Enter Token value" required>
+              <input id="tokenCount" type="text" placeholder="Token Count" required>
               <i class="bi bi-arrow-right"></i>
             </div>
           </div>
 
+          <div class="input-field">
+            <input id="tokenPriceToSell" type="text" placeholder="Your Token Price" required>
+            <i class="bi bi-arrow-right"></i>
+          </div>
+
           <div class="input-field button">
-            <input type="submit" value="Sell Token">
+            <input type="submit" value="List Your Token">
           </div>
 
         </form>
@@ -103,6 +119,7 @@
   <script>
     cookies = document.cookie.split(';')
     document.getElementById('walletID').value = decodeURIComponent(cookies[0].split('=')[1])
+    App.detailsToListTokenForSell()
   </script>
 </body>
 
