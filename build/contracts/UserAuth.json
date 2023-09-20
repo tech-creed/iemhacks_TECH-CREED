@@ -10511,12 +10511,12 @@
     "1695184142920": {
       "events": {},
       "links": {},
-      "address": "0xdc0DA71DA2680D344c00eFEdaFd5412844226660",
-      "transactionHash": "0x9ec3ebfdb49f1097b16b078663a1a4ca1ac6c9404f9810fa3cf884cc6c92f248"
+      "address": "0x6c6035e6B41902f94F824F3ac15299e70917A39C",
+      "transactionHash": "0x7d5238d6df203831e9c9cf8792ba77362f5d7889be5434381bcf4e24aeb36096"
     }
   },
   "schemaVersion": "3.4.15",
-  "updatedAt": "2023-09-20T05:18:43.974Z",
+  "updatedAt": "2023-09-20T17:23:41.312Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

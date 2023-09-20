@@ -173,7 +173,7 @@ App = {
         y_new_data_graph = []
 
         if(y_data.length > 7){
-            const rawResponse = await fetch('http://192.168.0.105:3000/week', {
+            const rawResponse = await fetch('http://127.0.0.1:3000/week', {
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',
@@ -302,7 +302,7 @@ App = {
         y_new_data_graph = []
 
         if(y_data.length > 7){
-            const rawResponse = await fetch('http://192.168.0.105:3000/week', {
+            const rawResponse = await fetch('http://127.0.0.1:3000/week', {
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',
