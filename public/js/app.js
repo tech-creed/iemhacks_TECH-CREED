@@ -128,6 +128,8 @@ App = {
     EmissionMark: async () => {
         await App.load()
 
+        await App.token.burnToken(document.getElementById('walletID').value,1,{from:document.getElementById('walletID').value})
+
         await App.emission.createEmissionData(document.getElementById('walletID').value, document.getElementById('co2').value, document.getElementById('emissionDate').value.toString(), { from: App.account, value: web3.utils.toWei((parseFloat(0.001) * parseFloat(document.getElementById('co2').value)).toString(), "ether") })
 
         window.location.href = '/mark-co2'
@@ -150,7 +152,6 @@ App = {
         for (var i = 1; i <= taskCount; i++) {
             const task = await App.emission.emmis(i)
             if (userWallet == task[0]) {
-                console.log(task)
                 cum_emission += parseFloat(task[1])
                 cum_fees += parseFloat(task[3])
 

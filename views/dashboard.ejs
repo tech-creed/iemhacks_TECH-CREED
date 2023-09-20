@@ -76,16 +76,16 @@
           </div>
           <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
             <!-- token details -->
-            <div class="col-md-6">
+            <div class="col-md-6" id="tokenNameTitle">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Token Name</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenName"></h1>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" id="tokenSymbolTitle">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Token Symbol</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenSymbol"></h1>
             </div>
           </div>
-          <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
+          <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;" id="tokenTitle">
             <div class="col-md-6">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Available Tokens</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenAvailable"></h1>
@@ -95,7 +95,7 @@
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenAllowance"></h1>
             </div>
           </div>
-          <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;">
+          <div style="display: flex;justify-content: space-between;margin-bottom: 24px;margin-top: 24px;" id="tokenStatusTitle">
             <div class="col-md-6">
               <h1 data-aos="fade-up" data-aos-delay="600"><u>Current Token Price</u></h1>
               <h1 data-aos="fade-up" data-aos-delay="500" id="tokenPrice"></h1>
@@ -137,6 +137,7 @@
   <script>
     App.tokenDetails()
     cookies = document.cookie.split(';')
+    console.log(cookies)
     document.getElementById(cookies[0].split('=')[0].trim()).innerHTML = decodeURIComponent(cookies[0].split('=')[1])
     document.getElementById(cookies[1].split('=')[0].trim()).innerHTML = decodeURIComponent(cookies[1].split('=')[1])
     document.getElementById(cookies[2].split('=')[0].trim()).innerHTML = decodeURIComponent(cookies[2].split('=')[1])
@@ -153,13 +154,18 @@
       document.getElementById('marketplace').style.display = 'none'
     } else if (document.getElementById('role').innerHTML == 'individual') {
       document.getElementById('reportLink').innerHTML = 'Your Emission Report'
-      
+
       document.getElementById('industryAllowance').style.display = 'none'
-      document.getElementById('token-name').style.display = 'none'
-      document.getElementById('token-symbol').style.display = 'none'
-      document.getElementById('available-token').style.display = 'none'
-      document.getElementById('token-price').style.display = 'none'
-      document.getElementById('token-supply').style.display = 'none'
+      document.getElementById('tokenName').style.display = 'none'
+      document.getElementById('tokenSymbol').style.display = 'none'
+      document.getElementById('tokenAvailable').style.display = 'none'
+      document.getElementById('tokenPrice').style.display = 'none'
+      document.getElementById('tokenSupply').style.display = 'none'
+
+      document.getElementById('tokenNameTitle').style.display = 'none'
+      document.getElementById('tokenSymbolTitle').style.display = 'none'
+      document.getElementById('tokenTitle').style.display = 'none'
+      document.getElementById('tokenStatusTitle').style.display = 'none'
 
       document.getElementById('buyToken').style.display = 'none'
       document.getElementById('sellToken').style.display = 'none'
